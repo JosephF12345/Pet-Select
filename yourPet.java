@@ -2,19 +2,23 @@ import java.util.*;
 
 
 public class yourPet {
+    //Joseph Fitzpatrick
+    //Date: 10/15/2026
+    //Description: This program utlizes user inputs (color, season, and name) and conditional statements to assign a pet to the user personalized to their choices.
     public static void main(String[] args) {
             Scanner userInput = new Scanner(System.in);
             System.out.println("Enter a Color | Valid Colors: Blue, Green, Red");
-            String color = userInput.nextLine().toLowerCase();
+            String color = userInput.nextLine().toLowerCase().trim();
             String season; 
             String name;
-            String pet = null;
+            String pet = "undetermined";
             String consonants = "bcdfghjklmnpqrstvwxyz";
             String vowels = "aeiou";
+            
             if (color.equals("blue") || color.equals("green") || color.equals("red"))
             {
                 System.out.println("Enter a Season | Valid Seasons: Fall, Winter, Spring, Summer");
-                season = userInput.nextLine().toLowerCase();
+                season = userInput.nextLine().toLowerCase().trim();
             }
             else{
                 System.out.println("That is not a valid color | Valid Colors: Blue, Green, Red");
@@ -24,7 +28,7 @@ public class yourPet {
             if (season.equals("fall") || season.equals("winter") ||season.equals("spring") || season.equals("summer"))
             {
                 System.out.println("Enter Your Name");
-                 name = userInput.nextLine().toLowerCase();
+                 name = userInput.nextLine().toLowerCase().trim();
             }
             else{
                 System.out.println("That is not a season | Valid Seasons: Fall, Winter, Spring, Summer");
@@ -32,59 +36,87 @@ public class yourPet {
             }
             
            
-            
-            
-            for (int i = 0; i <= name.length()-1; i++)
+            if (name.length() == 0)
+
             {
-                 if ("abcdefghijklmnopqrstuvwxyz".indexOf(name.substring(i, i + 1).toLowerCase()) >= 0){
+                System.out.println("Please Enter a Valid Name!");
+                return;
+            }
+            
+            for (int i = 0; i < name.length(); i++)
+            {
+                if ("abcdefghijklmnopqrstuvwxyz".indexOf(name.substring(i, i + 1).toLowerCase()) >= 0){
                     if (color.equals("blue") && season.equals("fall"))
                     {
                         pet = "alligator";
                         System.out.println(pet);
                         return;
                     }
-                    if (color.equals("blue") && season.equals("spring"))
+                    else if (color.equals("blue") && season.equals("spring"))
                     {
                         pet = "ostrich";
                         System.out.println(pet);
                         return;
                     }
+                    
 
-            for (int c = 0; c == 0; c++)
-            {
-                if (consonants.indexOf(name.substring(0,1).toLowerCase()) >= 0 && color.equals("green") && season.equals("winter"))
-                {
-                    
-                    pet = "giraffe";
-                    System.out.println(pet);
-                    return;
-                    
-                    
-                    
+            
+                    else if (consonants.indexOf(name.substring(0,1).toLowerCase()) >= 0 && color.equals("green") && season.equals("winter"))
+                    {
+                        
+                        pet = "giraffe";
+                        System.out.println(pet);
+                        return;
+                    }
+                    else if (color.equals("green") && !(season.equals("fall")))
+                    {
+                        pet = "dog";
+                        System.out.println(pet);
+                        return;
+                    }
+                    else if (color.equals("red") && consonants.indexOf(name.substring(0,1).toLowerCase()) >= 0 )
+                    {
+                        pet = "panda";
+                        System.out.println(pet);
+                        return;
+                    }
+                    else if (color.equals("red") && vowels.indexOf(name.substring(0,1).toLowerCase()) >= 0)
+                    {
+                        pet = "porcupine";
+                        System.out.println(pet);
+                        return;
+                    }
+                    else if (season.equals("summer"))
+                    {
+                        pet = "pony";
+                        System.out.println(pet);
+                        return;
+                    }
+                    else if (consonants.indexOf(name.substring(0,1).toLowerCase()) >= 0 && color.equals("blue") && !(season.equals("summer") || season.equals("fall")))
+                    {
+                        pet = "axolotl";
+                        System.out.println(pet);
+                        return;
+                    }
+                    else 
+                    {
+                        pet = "rock";
+                        System.out.println(pet);
+                        return;
+                    }
                 }
-                else if (color.equals("green") && (season.equals("winter") || season.equals("spring") || season.equals("summer")))
-                    
-                    pet = "dog";
-                    System.out.println(pet);
-                    return;
-                }
-            }
-            for (int v = 0; v == 0; v++)
-            {
-                if (color.equals("red"))
+                else 
                 {
-                    pet = "panda";
-                    System.out.println(pet);
-                    return;
-                }
-                else if (vowels.indexOf(name.substring(0,1).toLowerCase()) >= 0)
-                {
-                    pet = "porcupine";
-                    System.out.println(pet);
+                    System.out.println("Please Enter a Valid Name!");
                     return;
                 }
 
             }
+            }
+    }
+                
+            
+            
                 
                      
                     
@@ -94,15 +126,11 @@ public class yourPet {
                     
                     
                    
-                }
-                //else{
-                   // System.out.println("Please Enter a Valid Name");
-                 //   return;
-                //}
-            }
+                
+            
                
              
-    }
+    
 
 
 /* Those who prefer blue as a color and whose favorite season is fall should receive an alligator as their pet.
