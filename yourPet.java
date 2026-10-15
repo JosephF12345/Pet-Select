@@ -4,35 +4,106 @@ import java.util.*;
 public class yourPet {
     public static void main(String[] args) {
             Scanner userInput = new Scanner(System.in);
+            System.out.println("Enter a Color | Valid Colors: Blue, Green, Red");
             String color = userInput.nextLine().toLowerCase();
-            String season = userInput.nextLine().toLowerCase();
-            String name = userInput.nextLine().toLowerCase();
-            String pet;
-            System.out.println(" Not Case Sensitive | Valid Colors: Blue, Green, Red | Valid Seasons: Fall, Winter, Spring Summer" );
-            if (name != null){
-                if ((color().equals("blue") || color().equals("green") || color().equals("red")) && (season().equals("fall") || season().equals("winter") ||season().equals("spring") || season().equals("summer")))
+            String season; 
+            String name;
+            String pet = null;
+            String consonants = "bcdfghjklmnpqrstvwxyz";
+            String vowels = "aeiou";
+            if (color.equals("blue") || color.equals("green") || color.equals("red"))
             {
-                if (color().equals("blue") && season().equals("fall"))
-                {
-                    pet = "alligator";
-                }
-                else if (color().equals("blue") && season().equals("spring"))
-                {
-                    pet = "ostrich";
-                }
-                else if (color().equals("green") && season().equals("spring"))
-                {
-
-                }
+                System.out.println("Enter a Season | Valid Seasons: Fall, Winter, Spring, Summer");
+                season = userInput.nextLine().toLowerCase();
             }
+            else{
+                System.out.println("That is not a valid color | Valid Colors: Blue, Green, Red");
+                return;
             }
             
+            if (season.equals("fall") || season.equals("winter") ||season.equals("spring") || season.equals("summer"))
+            {
+                System.out.println("Enter Your Name");
+                 name = userInput.nextLine().toLowerCase();
+            }
             else{
-                System.out.println("Please Enter a Valid Input from the Selection Above");
+                System.out.println("That is not a season | Valid Seasons: Fall, Winter, Spring, Summer");
+                return;
+            }
+            
+           
+            
+            
+            for (int i = 0; i <= name.length()-1; i++)
+            {
+                 if ("abcdefghijklmnopqrstuvwxyz".indexOf(name.substring(i, i + 1).toLowerCase()) >= 0){
+                    if (color.equals("blue") && season.equals("fall"))
+                    {
+                        pet = "alligator";
+                        System.out.println(pet);
+                        return;
+                    }
+                    if (color.equals("blue") && season.equals("spring"))
+                    {
+                        pet = "ostrich";
+                        System.out.println(pet);
+                        return;
+                    }
+
+            for (int c = 0; c == 0; c++)
+            {
+                if (consonants.indexOf(name.substring(0,1).toLowerCase()) >= 0 && color.equals("green") && season.equals("winter"))
+                {
+                    
+                    pet = "giraffe";
+                    System.out.println(pet);
+                    return;
+                    
+                    
+                    
+                }
+                else if (color.equals("green") && (season.equals("winter") || season.equals("spring") || season.equals("summer")))
+                    
+                    pet = "dog";
+                    System.out.println(pet);
+                    return;
+                }
+            }
+            for (int v = 0; v == 0; v++)
+            {
+                if (color.equals("red"))
+                {
+                    pet = "panda";
+                    System.out.println(pet);
+                    return;
+                }
+                else if (vowels.indexOf(name.substring(0,1).toLowerCase()) >= 0)
+                {
+                    pet = "porcupine";
+                    System.out.println(pet);
+                    return;
+                }
+
             }
                 
+                     
+                    
+                    
+                    
+                    
+                    
+                    
+                   
+                }
+                //else{
+                   // System.out.println("Please Enter a Valid Name");
+                 //   return;
+                //}
+            }
+               
+             
     }
-}
+
 
 /* Those who prefer blue as a color and whose favorite season is fall should receive an alligator as their pet.
 Those who prefer blue as a color and whose favorite season is spring should receive an ostrich as their pet.
